@@ -27,8 +27,8 @@ function game() {
   let computerScore = 0;
   for (let i = 1; i <= 5; i++) {
     const playerSelection = prompt(
-      `Round ${i}: Enter your choice (Rock/Paper/Scissors):`
-    ).toLowerCase();
+      `Round ${i}: Enter your choice (Rock, Paper, Scissors):`
+    ).toLowerCase().trim();
     const computerSelection = computerPlay().toLowerCase();
     const result = playRound(playerSelection, computerSelection);
     console.log(result);
