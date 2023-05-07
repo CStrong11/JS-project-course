@@ -18,17 +18,15 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
-const playerSelection = "rock";
-const computerSelection = computerPlay();
-console.log(playRound(playerSelection, computerSelection));
-
 function game() {
   let playerScore = 0;
   let computerScore = 0;
   for (let i = 1; i <= 5; i++) {
     const playerSelection = prompt(
       `Round ${i}: Enter your choice (Rock, Paper, Scissors):`
-    ).toLowerCase().trim();
+    )
+      .toLowerCase()
+      .trim();
     const computerSelection = computerPlay().toLowerCase();
     const result = playRound(playerSelection, computerSelection);
     console.log(result);
@@ -50,3 +48,5 @@ function game() {
     console.log(`It's a tie! Final score: ${playerScore} - ${computerScore}`);
   }
 }
+
+game();
