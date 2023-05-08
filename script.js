@@ -60,15 +60,11 @@ function game() {
     }
   }
   if (playerScore > computerScore) {
-    console.log(
-      `You won the game! Final score: ${playerScore} - ${computerScore}`
-    );
+    alert(`You won the game! Final score: ${playerScore} - ${computerScore}`);
   } else if (playerScore < computerScore) {
-    console.log(
-      `You lost the game! Final score: ${playerScore} - ${computerScore}`
-    );
+    alert(`You lost the game! Final score: ${playerScore} - ${computerScore}`);
   } else {
-    console.log(`It's a tie! Final score: ${playerScore} - ${computerScore}`);
+    alert(`It's a tie! Final score: ${playerScore} - ${computerScore}`);
   }
 }
 
