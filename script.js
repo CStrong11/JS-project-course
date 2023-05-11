@@ -25,6 +25,13 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
+function playerChoice(i) {
+  const playerSelection = prompt(
+    `Round ${i}: Enter your choice (Rock, Paper, Scissors):`
+  );
+  return playerSelection.toLowerCase().trim();
+}
+
 function game() {
   alert(
     `Welcome to the game of rock-scissors-paper, you will play 5 round against the computer. type your choice and let have fun!`
@@ -32,9 +39,10 @@ function game() {
   let playerScore = 0;
   let computerScore = 0;
   for (let i = 1; i <= 5; i++) {
-    const playerSelection = prompt(
-      `Round ${i}: Enter your choice (Rock, Paper, Scissors):`
-    );
+    const computerSelection = computerPlay().toLowerCase();
+    const playerSelection = playerChoice(i);
+    const result = playRound(playerSelection, computerSelection);
+    console.log(result);
     if (playerSelection === null) {
       const shouldExit = confirm("Are you sure you want to exit the game?");
 
@@ -46,9 +54,6 @@ function game() {
         continue;
       }
     }
-    const computerSelection = computerPlay().toLowerCase();
-    const result = playRound(playerSelection, computerSelection);
-    console.log(result);
     if (result.startsWith("You Win!")) {
       playerScore++;
     } else if (result.startsWith("You Lose!")) {
@@ -59,6 +64,10 @@ function game() {
       i--;
     }
   }
+  finalScore(playerScore, computerScore);
+}
+
+function finalScore(playerScore, computerScore) {
   if (playerScore > computerScore) {
     alert(`You won the game! Final score: ${playerScore} - ${computerScore}`);
   } else if (playerScore < computerScore) {
@@ -67,5 +76,4 @@ function game() {
     alert(`It's a tie! Final score: ${playerScore} - ${computerScore}`);
   }
 }
-
 game();
